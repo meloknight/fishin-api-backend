@@ -54,21 +54,43 @@ const getSpecificFish = async (req, res) => {
 
 const goFishin = async (req, res) => {
   try {
-    // fishListLength = 12;
+    const fishIdsAndRarities = await pool.query(
+      "SELECT fish_id, rarity FROM fish;"
+    );
+
+    const rarityWeights = {
+      common: 16,
+      uncommon: 12,
+      rare: 6,
+      ultra: 3,
+      legendary: 1,
+    };
+
+    const fishIdsAndNumericalRarity = [];
+    for (let i = 0; i < fishIdsAndRarities.rows.length; i++) {
+      const numericalRarity = rarityWeights[fishIdsAndRarities.rows[i].rarity];
+      fishIdsAndNumericalRarity.push({
+        fish_id: fishIdsAndRarities.rows[i].fish_id,
+        numRarity: numericalRarity,
+      });
+    }
+
+    console.log(fishIdsAndNumericalRarity);
+
     const fishListLength = await pool.query(
       "SELECT COUNT(fish_name) FROM fish;"
     );
+
     const random = Math.random();
-    // console.log(random);
     const randomNumber = Math.ceil(
       random * Number(fishListLength.rows[0].count)
     );
-    // console.log(randomNumber);
+
     const fish = await pool.query("SELECT * FROM fish WHERE fish_id = $1", [
       randomNumber,
     ]);
 
-    console.log(fish.rows[0]);
+    // console.log(fish.rows[0]);
 
     res.status(200).json(fish.rows[0]);
     // res.status(200).json(fishListLength.rows[0].count);
