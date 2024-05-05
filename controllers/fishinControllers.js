@@ -1,4 +1,5 @@
 const pool = require("../db");
+const jStat = require("jstat");
 
 const getAllFish = async (req, res) => {
   try {
@@ -59,11 +60,11 @@ const goFishin = async (req, res) => {
     );
 
     const rarityWeights = {
-      common: 16,
-      uncommon: 12,
-      rare: 6,
-      ultra: 3,
-      legendary: 1,
+      common: 20,
+      uncommon: 15,
+      rare: 8,
+      ultra: 4,
+      legendary: 2,
     };
 
     const fishIdsAndNumericalRarity = [];
@@ -75,25 +76,50 @@ const goFishin = async (req, res) => {
       });
     }
 
-    console.log(fishIdsAndNumericalRarity);
-
-    const fishListLength = await pool.query(
-      "SELECT COUNT(fish_name) FROM fish;"
+    let sumNumRarity = fishIdsAndNumericalRarity.reduce(
+      (sum, currentValue) => currentValue.numRarity + sum,
+      0
     );
 
-    const random = Math.random();
-    const randomNumber = Math.ceil(
-      random * Number(fishListLength.rows[0].count)
-    );
+    let sumRandom = Math.floor(Math.random() * sumNumRarity) + 1;
+    let chosenFishId;
+    for (let i = 0; i < fishIdsAndNumericalRarity.length; i++) {
+      if (fishIdsAndNumericalRarity[i].numRarity > sumRandom) {
+        chosenFishId = fishIdsAndNumericalRarity[i].fish_id;
+        break;
+      }
+      sumRandom -= fishIdsAndNumericalRarity[i].numRarity;
+    }
+
+    console.log(`Chosen fish has fish_id: ${chosenFishId}`);
 
     const fish = await pool.query("SELECT * FROM fish WHERE fish_id = $1", [
-      randomNumber,
+      chosenFishId,
     ]);
+    console.log(fish.rows[0]);
+    // -- FISH IS CHOSEN NOW -- //
 
-    // console.log(fish.rows[0]);
+    const weightMean = fish.rows[0].fish_mean_weight_kg;
+    const weightStdDev = fish.rows[0].fish_weight_boundary_kg;
+    const lengthMean = fish.rows[0].fish_mean_length_cm;
+    const lengthStdDev = fish.rows[0].fish_length_boundary_cm;
 
-    res.status(200).json(fish.rows[0]);
-    // res.status(200).json(fishListLength.rows[0].count);
+    const fishWeight =
+      Math.floor(jStat.normal.sample(weightMean, weightStdDev) * 100) / 100;
+    const fishLength =
+      Math.floor(jStat.normal.sample(lengthMean, lengthStdDev) * 10) / 10;
+    // -- FISH WEIGHT AND LENGTH CHOSEN NOW -- //
+
+    console.log(
+      `The fish is ${fish.rows[0].fish_name} and it weighs ${fishWeight}kg's and is ${fishLength}cm's long`
+    );
+
+    const fishResponse = {
+      fish_name: fish.rows[0].fish_name,
+      fish_weight_kgs: fishWeight,
+      fish_length_cms: fishLength,
+    };
+    res.status(200).json(fishResponse);
   } catch (error) {
     console.error(error.message);
   }
@@ -134,3 +160,15 @@ module.exports = {
   updateFish,
   deleteFish,
 };
+
+// ---------------------
+// REMOVED ITEMS FOR REFERENCE
+// ---------------------
+// const fishListLength = await pool.query(
+//   "SELECT COUNT(fish_name) FROM fish;"
+// );
+
+// const random = Math.random();
+// const randomNumber = Math.ceil(
+//   random * Number(fishListLength.rows[0].count)
+// );

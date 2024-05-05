@@ -21,13 +21,11 @@ app.use(myLogger);
 app.use(requestTime);
 
 // routes //
-app.route("/api/v1/fish").post(createFish).get(getAllFish);
-app
-  .route("/api/v1/fish/searchfish/:id")
-  .get(getSpecificFish)
-  .put(updateFish)
-  .delete(deleteFish);
-app.get("/api/v1/fish/fishin", goFishin);
+app.route("/api/v1/fish").get(getAllFish); //.post(createFish);
+app.route("/api/v1/fish/searchfish/:id").get(getSpecificFish);
+// .put(updateFish)
+// .delete(deleteFish);
+app.get("/api/v1/fish/gofishin", goFishin);
 
 // listener //
 const port = process.env.PORT || 5000;
