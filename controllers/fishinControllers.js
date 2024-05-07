@@ -3,9 +3,8 @@ const jStat = require("jstat");
 
 const getAllFish = async (req, res) => {
   try {
-    console.log(req.requestTime);
     const allFish = await pool.query("SELECT * FROM fish");
-    res.json(allFish.rows);
+    res.status(200).json(allFish.rows);
   } catch (error) {
     console.error(error.message);
   }
@@ -32,7 +31,7 @@ const createFish = async (req, res) => {
         rarity,
       ]
     );
-    res.status(200).json(newFish.rows[0]);
+    res.status(201).json(newFish.rows[0]);
   } catch (error) {
     console.error(error.message);
   }
@@ -47,7 +46,7 @@ const getSpecificFish = async (req, res) => {
     if (!fish.rows[0]) {
       res.status(400).send(`Fish with id ${id} is not in database`);
     }
-    res.json(fish.rows[0]);
+    res.status(200).json(fish.rows[0]);
   } catch (error) {
     console.error(error.message);
   }
@@ -62,9 +61,9 @@ const goFishin = async (req, res) => {
     const rarityWeights = {
       common: 20,
       uncommon: 15,
-      rare: 8,
-      ultra: 4,
-      legendary: 2,
+      rare: 9,
+      ultra: 5,
+      legendary: 1,
     };
 
     const fishIdsAndNumericalRarity = [];
@@ -91,8 +90,6 @@ const goFishin = async (req, res) => {
       sumRandom -= fishIdsAndNumericalRarity[i].numRarity;
     }
 
-    console.log(`Chosen fish has fish_id: ${chosenFishId}`);
-
     const fish = await pool.query("SELECT * FROM fish WHERE fish_id = $1", [
       chosenFishId,
     ]);
@@ -110,15 +107,16 @@ const goFishin = async (req, res) => {
       Math.floor(jStat.normal.sample(lengthMean, lengthStdDev) * 10) / 10;
     // -- FISH WEIGHT AND LENGTH CHOSEN NOW -- //
 
-    console.log(
-      `The fish is ${fish.rows[0].fish_name} and it weighs ${fishWeight}kg's and is ${fishLength}cm's long`
-    );
+    // console.log(
+    //   `The fish is ${fish.rows[0].fish_name} and it weighs ${fishWeight}kg's and is ${fishLength}cm's long`
+    // );
 
     const fishResponse = {
       fish_name: fish.rows[0].fish_name,
       fish_weight_kgs: fishWeight,
       fish_length_cms: fishLength,
     };
+    console.log(fishResponse);
     res.status(200).json(fishResponse);
   } catch (error) {
     console.error(error.message);
@@ -134,7 +132,7 @@ const updateFish = async (req, res) => {
       "UPDATE fish SET fish_name = $1 WHERE fish_id = $2",
       [fish_name, id]
     );
-    res.status(200).json({ completed: true });
+    res.status(201).json({ completed: true });
   } catch (error) {
     console.error(error.message);
   }
@@ -146,7 +144,7 @@ const deleteFish = async (req, res) => {
     const deleteFish = await pool.query("DELETE FROM fish WHERE fish_id = $1", [
       id,
     ]);
-    res.json({ completed: true });
+    res.status(200).json({ completed: true });
   } catch (error) {
     console.error(error.message);
   }

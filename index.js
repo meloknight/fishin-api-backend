@@ -2,8 +2,12 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const cors = require("cors");
+// const fs = require("fs");
 // const pool = require("./db");
+const notFound = require("./middleware/not-found");
 const myLogger = require("./middleware/logger");
+const logErrors = require("./middleware/logErrors");
+const errorHandler = require("./middleware/errorHandler");
 const requestTime = require("./middleware/requestTime");
 const {
   getAllFish,
@@ -17,8 +21,10 @@ const {
 // middleware //
 app.use(cors());
 app.use(express.json()); //req.body and req.params
-app.use(myLogger);
 app.use(requestTime);
+app.use(myLogger);
+app.use(logErrors);
+app.use(errorHandler);
 
 // routes //
 app.route("/api/v1/fish").get(getAllFish); //.post(createFish);
@@ -26,6 +32,8 @@ app.route("/api/v1/fish/searchfish/:id").get(getSpecificFish);
 // .put(updateFish)
 // .delete(deleteFish);
 app.get("/api/v1/fish/gofishin", goFishin);
+
+app.use(notFound);
 
 // listener //
 const port = process.env.PORT || 5000;
