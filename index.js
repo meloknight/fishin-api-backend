@@ -33,6 +33,11 @@ app.route("/api/v1/fish/searchfish/:id").get(getSpecificFish);
 // .delete(deleteFish);
 app.get("/api/v1/fish/gofishin", goFishin);
 
+// ROUTES TO ADD
+// Find fish by name (query the db)
+// upgrade the get all fish to return pages of 10 or something
+// add restrictions to get based on origin or location
+
 app.use(notFound);
 
 // listener //
