@@ -90,9 +90,10 @@ const goFishin = async (req, res) => {
       sumRandom -= fishIdsAndNumericalRarity[i].numRarity;
     }
 
-    const fish = await pool.query("SELECT * FROM fish WHERE fish_id = $1", [
-      chosenFishId,
-    ]);
+    const fish = await pool.query(
+      "SELECT * FROM fish INNER JOIN fish_to_locations ON fish.fish_id = fish_to_locations.fish_id INNER JOIN locations ON fish_to_locations.location_id = locations.location_id INNER JOIN origins ON origins.origin_id = locations.origin_id WHERE fish.fish_id = $1",
+      [chosenFishId]
+    );
     console.log(fish.rows[0]);
     // -- FISH IS CHOSEN NOW -- //
 
@@ -115,6 +116,8 @@ const goFishin = async (req, res) => {
       fish_name: fish.rows[0].fish_name,
       fish_weight_kgs: fishWeight,
       fish_length_cms: fishLength,
+      fish_location: fish.rows[0].location_name,
+      fish_origin: fish.rows[0].origin_name,
     };
     console.log(fishResponse);
     res.status(200).json(fishResponse);
