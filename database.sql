@@ -1,5 +1,4 @@
---psql --host=free-postgresql-database.postgres.database.azure.com --port=5432 --username=postgres --dbname=postgres
-
+--   psql --host=free-postgresql-database.postgres.database.azure.com --port=5432 --username=postgres --dbname=postgres
 -- Consider adding table for times when fish are catchable
 -- Consider adding table for rarity reference
 -- Current rarities: common, uncommon, rare, very rare, legendary
@@ -36,5 +35,9 @@ CREATE TABLE lures (
     lure_id SERIAL PRIMARY KEY,
     lure_name VARCHAR(255)
 );
+
+INSERT INTO fish_to_locations (location_name, origin_id) VALUES($1, $2);
+
+INSERT INTO origins (origin_name) VALUES("Legend of Zelda: Majora's Mask");
 
 
