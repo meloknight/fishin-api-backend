@@ -32,6 +32,9 @@ app.route("/api/v1/fish/searchfish/:id").get(getSpecificFish);
 // .put(updateFish)
 // .delete(deleteFish);
 app.get("/api/v1/fish/gofishin", goFishin);
+app.get("/", async (req, res) => {
+  res.status(200).json("something fishy round here");
+});
 
 // ROUTES TO ADD
 // Find fish by name (query the db)
