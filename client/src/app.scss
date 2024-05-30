@@ -1,0 +1,210 @@
+@use "./styles/mountains.scss";
+@use "./styles/boats.scss";
+@use "./styles/fish-info-card.scss";
+@use "./styles/go-fishin-button.scss";
+@use "./styles/sky.scss";
+@use "./styles/fish.scss";
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --main-font: "Poetsen One";
+
+  // Day mode!
+  --yellow: #feffcd;
+  --clouds: white;
+  --distant-mountains: #a1bba3;
+  --middle-mountains: #82ba86;
+  --close-mountains: #56a65e;
+  --bushes: #25b133;
+  --title: #25b133;
+  --dark-text: #046900;
+  --sky: #c5f4ff;
+
+  // Night mode!
+  --night-sky: #094d92;
+  --night-clouds: #2dc2bd;
+  --night-yellow: #c3f73a;
+  --night-distant-mountains: #6d405e;
+  --night-middle-mountains: #402a39;
+  --night-close-mountains: #1c1018;
+  --night-bushes: #12664f;
+
+  --baseline-background-height: 270px;
+  --baseline-background-height-vh: 40vh;
+}
+
+body {
+  font-family: var(--main-font), sans-serif;
+  background-color: var(--sky);
+  // width: 100vw;
+  overflow-x: hidden;
+  letter-spacing: 1px;
+  line-height: 30px;
+}
+
+.night-sky {
+  background-color: var(--night-sky);
+  z-index: 1;
+}
+
+button {
+  font-family: var(--main-font), sans-serif;
+  letter-spacing: 1px;
+}
+
+.top-container {
+  position: relative;
+  height: 95vh;
+  max-height: 750px;
+  overflow: hidden;
+}
+
+.title {
+  letter-spacing: 1.5px;
+  padding: 20px 45px;
+  margin: 10px;
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: var(--title);
+  z-index: 23;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.night-title {
+  color: var(--night-yellow);
+}
+
+@media (height < 650px) {
+  .top-container {
+    height: 99vh;
+  }
+  .go-fishin-button {
+    right: 1vw;
+  }
+}
+
+// FOREGROUND - Grass and bushes
+.bush {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--bushes);
+}
+.night-bush {
+  background-color: var(--night-bushes);
+}
+
+// -------------------------
+// INFORMATION SECTION!!
+// -------------------------
+
+.next-container {
+  // background-color: #25b133;
+  overflow: hidden;
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    var(--bushes) 0%,
+    var(--bushes) 7%,
+    var(--sky) 100%
+  );
+  z-index: 30;
+  padding-top: 70px;
+  padding-bottom: 180px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.night-next-container {
+  background: linear-gradient(
+    180deg,
+    var(--night-bushes) 0%,
+    var(--night-bushes) 7%,
+    var(--night-sky) 100%
+  );
+}
+
+.info-container {
+  z-index: 30;
+  color: var(--bushes);
+  padding: 100px 120px;
+  width: 90%;
+  max-width: 1200px;
+  border-radius: 30px;
+  background-color: var(--yellow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  h1 {
+    font-size: 2.5rem;
+    padding-bottom: 18px;
+    letter-spacing: 3px;
+  }
+  p {
+    padding-left: 40px;
+    font-size: 1.3rem;
+  }
+}
+.night-info-container {
+  color: var(--night-yellow);
+  background-color: var(--night-sky);
+  border: 2px solid var(--night-yellow);
+}
+
+.divider-line {
+  width: 20%;
+  height: 3px;
+  background-color: var(--bushes);
+}
+.night-divider-line {
+  background-color: var(--night-yellow);
+}
+
+@media (width < 850px) {
+  .info-container {
+    padding: 60px;
+    width: 90%;
+    max-width: 1200px;
+    gap: 70px;
+    h1 {
+      font-size: 1.8rem;
+      padding-bottom: 20px;
+      letter-spacing: 3px;
+      text-align: center;
+    }
+    p {
+      padding-left: 0;
+      font-size: 1.1rem;
+    }
+  }
+  .divider-line {
+    width: 50%;
+    height: 5px;
+  }
+}
+
+@media (width < 350px) {
+  .info-container {
+    // padding: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 95%;
+    gap: 50px;
+    h1 {
+      padding-bottom: 20px;
+      letter-spacing: 0px;
+    }
+    p {
+      padding-left: 0;
+      font-size: 1rem;
+    }
+  }
+}

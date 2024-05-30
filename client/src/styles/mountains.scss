@@ -1,0 +1,238 @@
+.mountain {
+  position: absolute;
+  clip-path: polygon(50% 0, 0% 100%, 100% 100%);
+}
+
+// DISTANT MOUNTAINS
+.distant-mountain {
+  background-color: var(--distant-mountains);
+  z-index: 5;
+}
+.night-distant-mountain {
+  background-color: var(--night-distant-mountains);
+}
+
+.md1 {
+  // bottom: 270px;
+  bottom: min(
+    var(--baseline-background-height),
+    var(--baseline-background-height-vh)
+  );
+  right: -120px;
+  width: 520px;
+  // height: 300px;
+  height: 36vh;
+
+  // height: min(300px, 50vh);
+}
+.md2 {
+  bottom: min(
+    var(--baseline-background-height),
+    var(--baseline-background-height-vh)
+  );
+  right: -60px;
+  width: 530px;
+  // height: 250px;
+  height: 30vh;
+}
+.md3 {
+  bottom: min(
+    var(--baseline-background-height),
+    var(--baseline-background-height-vh)
+  );
+  right: 140px;
+  width: 530px;
+  // height: 150px;
+  height: 18vh;
+}
+.md4 {
+  bottom: min(
+    var(--baseline-background-height),
+    var(--baseline-background-height-vh)
+  );
+  right: 500px;
+  width: 330px;
+  // height: 100px;
+  height: 12vh;
+}
+.md5 {
+  bottom: min(
+    var(--baseline-background-height),
+    var(--baseline-background-height-vh)
+  );
+  left: 340px;
+  width: 700px;
+  height: 150px;
+}
+.md6 {
+  bottom: min(
+    var(--baseline-background-height),
+    var(--baseline-background-height-vh)
+  );
+  left: -20px;
+  width: 420px;
+  height: 200px;
+}
+.md7 {
+  bottom: min(
+    var(--baseline-background-height),
+    var(--baseline-background-height-vh)
+  );
+  left: -170px;
+  width: 500px;
+  height: 250px;
+}
+
+// middle mountains
+.middle-mountain {
+  background-color: var(--middle-mountains);
+  z-index: 10;
+}
+.night-middle-mountain {
+  background-color: var(--night-middle-mountains);
+}
+.mm1 {
+  bottom: min(
+    var(--baseline-background-height) - 10px,
+    var(--baseline-background-height-vh) - 10px
+  );
+  right: -100px;
+  width: 400px;
+  // height: 200px;
+  height: 24vh;
+}
+.mm2 {
+  bottom: min(
+    var(--baseline-background-height) - 30px,
+    var(--baseline-background-height-vh) - 30px
+  );
+  right: 120px;
+  width: 400px;
+  // height: 200px;
+  height: 24vh;
+}
+.mm3 {
+  bottom: min(
+    var(--baseline-background-height) - 30px,
+    var(--baseline-background-height-vh) - 30px
+  );
+  right: 360px;
+  width: 400px;
+  height: 110px;
+  // height: 13vh;
+}
+.mm4 {
+  bottom: min(
+    var(--baseline-background-height) - 10px,
+    var(--baseline-background-height-vh) - 10px
+  );
+  left: 380px;
+  width: 400px;
+  height: 100px;
+}
+.mm5 {
+  bottom: min(
+    var(--baseline-background-height) - 10px,
+    var(--baseline-background-height-vh) - 10px
+  );
+  left: 140px;
+  width: 400px;
+  height: 120px;
+}
+.mm6 {
+  bottom: min(
+    var(--baseline-background-height) - 10px,
+    var(--baseline-background-height-vh) - 10px
+  );
+  left: -190px;
+  width: 500px;
+  height: 180px;
+}
+
+// close mountains
+.close-mountain {
+  background-color: var(--close-mountains);
+  z-index: 15;
+}
+.night-close-mountain {
+  background-color: var(--night-close-mountains);
+}
+// .mc0 {
+//   bottom: min(
+//     var(--baseline-background-height) - 80px,
+//     var(--baseline-background-height-vh) - 80px
+//   );
+//   right: -220px;
+//   width: 400px;
+//   // height: 200px;
+//   height: 24vh;
+// }
+.mc1 {
+  // background-color: red;
+  bottom: min(
+    var(--baseline-background-height) - 80px,
+    var(--baseline-background-height-vh) - 80px
+  );
+  right: -220px;
+  width: 400px;
+  height: 200px;
+  // height: 24vh;
+}
+.mc2 {
+  bottom: min(
+    var(--baseline-background-height) - 50px,
+    var(--baseline-background-height-vh) - 50px
+  );
+  right: 0px;
+  width: 520px;
+  height: 120px;
+  // height: 14vh;
+}
+.mc3 {
+  //   background-color: red;
+  bottom: min(
+    var(--baseline-background-height) - 30px,
+    var(--baseline-background-height-vh) - 30px
+  );
+  right: 520px;
+  width: 280px;
+  // height: 70px;
+  height: 8vh;
+}
+.mc4 {
+  bottom: min(
+    var(--baseline-background-height) - 30px,
+    var(--baseline-background-height-vh) - 30px
+  );
+  right: 620px;
+  width: 620px;
+  height: 120px;
+  // height: 15vh;
+}
+.mc5 {
+  bottom: min(
+    var(--baseline-background-height) - 80px,
+    var(--baseline-background-height-vh) - 80px
+  );
+  left: -160px;
+  width: 320px;
+  height: 120px;
+}
+.mc6 {
+  bottom: min(
+    var(--baseline-background-height) - 60px,
+    var(--baseline-background-height-vh) - 60px
+  );
+  left: -130px;
+  width: 320px;
+  height: 120px;
+}
+.mc7 {
+  bottom: min(
+    var(--baseline-background-height) - 30px,
+    var(--baseline-background-height-vh) - 30px
+  );
+  left: 50px;
+  width: 220px;
+  height: 60px;
+}

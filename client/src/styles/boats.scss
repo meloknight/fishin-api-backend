@@ -1,0 +1,94 @@
+// BOATS
+.boats {
+  position: absolute;
+  z-index: 1;
+  filter: invert(34%) sepia(0%) saturate(876%) hue-rotate(176deg)
+    brightness(92%) contrast(78%);
+}
+.night-boats {
+  filter: invert(60%) sepia(44%) saturate(659%) hue-rotate(129deg)
+    brightness(100%) contrast(87%);
+}
+.boat-1 {
+  width: 12px;
+  bottom: min(
+    var(--baseline-background-height) - 84px,
+    var(--baseline-background-height-vh) - 84px
+  );
+  right: 40px;
+}
+.boat-2 {
+  width: 18px;
+  bottom: min(
+    var(--baseline-background-height) - 105px,
+    var(--baseline-background-height-vh) - 105px
+  );
+  right: 120px;
+}
+.boat-3 {
+  transform: scaleX(-1);
+  width: 12px;
+  bottom: min(
+    var(--baseline-background-height) - 74px,
+    var(--baseline-background-height-vh) - 74px
+  );
+  right: 180px;
+}
+.boat-4 {
+  width: 11px;
+  bottom: min(
+    var(--baseline-background-height) - 54px,
+    var(--baseline-background-height-vh) - 54px
+  );
+  right: 300px;
+}
+.boat-5 {
+  width: 9px;
+  bottom: min(
+    var(--baseline-background-height) - 44px,
+    var(--baseline-background-height-vh) - 44px
+  );
+  right: 503px;
+}
+.boat-6 {
+  width: 8px;
+  bottom: min(
+    var(--baseline-background-height) - 35px,
+    var(--baseline-background-height-vh) - 35px
+  );
+  right: 750px;
+}
+.boat-7 {
+  transform: scaleX(-1);
+  width: 18px;
+  bottom: min(
+    var(--baseline-background-height) - 105px,
+    var(--baseline-background-height-vh) - 105px
+  );
+  left: 15px;
+}
+.boat-8 {
+  width: 15px;
+  bottom: min(
+    var(--baseline-background-height) - 85px,
+    var(--baseline-background-height-vh) - 85px
+  );
+  left: 55px;
+}
+.boat-9 {
+  transform: scaleX(-1);
+  width: 12px;
+  bottom: min(
+    var(--baseline-background-height) - 76px,
+    var(--baseline-background-height-vh) - 76px
+  );
+  left: 150px;
+}
+.boat-10 {
+  width: 8px;
+  bottom: min(
+    var(--baseline-background-height) - 40px,
+    var(--baseline-background-height-vh) - 40px
+  );
+  left: 405px;
+}

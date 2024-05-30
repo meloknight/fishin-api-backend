@@ -1,0 +1,28 @@
+.go-fishin-button {
+  position: absolute;
+  font-size: 2rem;
+  color: var(--bushes);
+  bottom: 0;
+  right: 50px;
+  z-index: 30;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background-color: var(--yellow);
+  border: 2px solid var(--bushes);
+}
+.go-fishin-button:hover {
+  color: var(--yellow);
+  background-color: var(--bushes);
+  border: 2px solid var(--yellow);
+}
+.night-go-fishin-button {
+  color: var(--night-yellow);
+  background-color: var(--night-sky);
+  border: 2px solid var(--night-yellow);
+}
+.night-go-fishin-button:hover {
+  color: var(--night-sky);
+  background-color: var(--night-yellow);
+  border: 2px solid var(--night-sky);
+}

@@ -1,0 +1,190 @@
+.fish-1 {
+  // green
+  transform: scaleX(-1);
+  width: 120px;
+  position: absolute;
+  left: 16vw;
+  bottom: 150px;
+  z-index: 100;
+  filter: invert(48%) sepia(79%) saturate(2476%) hue-rotate(86deg)
+    brightness(118%) contrast(119%);
+}
+.fish-2 {
+  // low white
+  width: 100px;
+  position: absolute;
+  left: 1200px;
+  bottom: 30px;
+  z-index: 1;
+  filter: invert(98%) sepia(94%) saturate(183%) hue-rotate(187deg)
+    brightness(115%) contrast(100%);
+}
+.fish-3 {
+  // grey
+  transform: scaleX(-1);
+  width: 150px;
+  position: absolute;
+  left: 900px;
+  bottom: 120px;
+  z-index: 1;
+  filter: invert(76%) sepia(17%) saturate(291%) hue-rotate(74deg)
+    brightness(92%) contrast(90%);
+}
+.fish-4 {
+  // yellow
+  // transform: scaleX(-1);
+  width: 80px;
+  position: absolute;
+  left: 120px;
+  bottom: 90px;
+  z-index: 1;
+  filter: invert(94%) sepia(4%) saturate(2375%) hue-rotate(28deg)
+    brightness(117%) contrast(102%);
+}
+.fish-5 {
+  // low red
+  width: 200px;
+  position: absolute;
+  left: 600px;
+  bottom: -60px;
+  z-index: 1;
+  filter: invert(54%) sepia(56%) saturate(6853%) hue-rotate(337deg)
+    brightness(98%) contrast(115%);
+}
+.fish-6 {
+  // high red
+  transform: scaleX(-1);
+  width: 80px;
+  position: absolute;
+  right: 10px;
+  bottom: 400px;
+  z-index: 100;
+  filter: invert(54%) sepia(56%) saturate(6853%) hue-rotate(337deg)
+    brightness(98%) contrast(115%);
+}
+@media (width < 650px) {
+  .fish-6 {
+    z-index: 1;
+  }
+}
+.fish-7 {
+  // deep blue
+  transform: scaleX(-1);
+  width: 220px;
+  position: absolute;
+  left: -40px;
+  bottom: -20px;
+  z-index: 1;
+  filter: invert(13%) sepia(96%) saturate(927%) hue-rotate(199deg)
+    brightness(91%) contrast(92%);
+}
+.fish-8 {
+  transform: scaleX(-1);
+  width: 120px;
+  position: absolute;
+  left: 10px;
+  bottom: 600px;
+  z-index: 1;
+  filter: invert(100%) sepia(100%) saturate(8%) hue-rotate(155deg)
+    brightness(102%) contrast(106%);
+}
+.fish-9 {
+  transform: scaleX(-1);
+  width: 120px;
+  position: absolute;
+  left: 420px;
+  bottom: 60px;
+  z-index: 1;
+  filter: invert(25%) sepia(81%) saturate(433%) hue-rotate(113deg)
+    brightness(103%) contrast(90%);
+}
+.fish-10 {
+  // transform: scaleX(-1);
+  width: 120px;
+  position: absolute;
+  left: 1520px;
+  bottom: 90px;
+  z-index: 1;
+  filter: invert(94%) sepia(4%) saturate(2375%) hue-rotate(28deg)
+    brightness(117%) contrast(102%);
+}
+.fish-11 {
+  // transform: scaleX(-1);
+  width: 90px;
+  position: absolute;
+  left: 200px;
+  bottom: 400px;
+  z-index: 1;
+  filter: invert(25%) sepia(81%) saturate(433%) hue-rotate(113deg)
+    brightness(103%) contrast(90%);
+}
+.seaweed-1 {
+  position: absolute;
+  width: 40px;
+  z-index: 0;
+  bottom: 0;
+  right: -5px;
+}
+.seaweed-2 {
+  position: absolute;
+  width: 40px;
+  z-index: 2;
+  bottom: -40px;
+  right: 50px;
+}
+.seaweed-3 {
+  transform: scaleX(-1);
+  position: absolute;
+  width: 40px;
+  z-index: 0;
+  bottom: -80px;
+  right: 70px;
+}
+.seaweed-4 {
+  transform: scaleX(-1);
+  position: absolute;
+  width: 40px;
+  z-index: 2;
+  bottom: 0;
+  right: 120px;
+}
+.seaweed-5 {
+  transform: scaleX(-1);
+  position: absolute;
+  width: 40px;
+  z-index: 2;
+  bottom: -200px;
+  right: 160px;
+}
+.seaweed-6 {
+  // transform: scaleX(-1);
+  position: absolute;
+  width: 40px;
+  z-index: 0;
+  bottom: -220px;
+  right: 180px;
+}
+.seaweed-7 {
+  transform: scaleX(-1);
+  position: absolute;
+  width: 40px;
+  z-index: 0;
+  bottom: -320px;
+  right: 300px;
+}
+.seaweed-8 {
+  // transform: scaleX(-1);
+  position: absolute;
+  width: 40px;
+  z-index: 2;
+  bottom: -280px;
+  right: 340px;
+}
+.seaweed-9 {
+  // transform: scaleX(-1);
+  position: absolute;
+  width: 40px;
+  z-index: 0;
+  bottom: -410px;
+  right: 370px;
+}

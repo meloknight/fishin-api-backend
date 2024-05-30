@@ -1,0 +1,171 @@
+.sun-container {
+  position: absolute;
+  bottom: calc(57vh);
+  bottom: min(57vh, 550px);
+  right: 110px;
+  width: 240px;
+  height: 240px;
+  .sun {
+    border: none;
+    position: absolute;
+    top: 52px;
+    left: 52px;
+    background-color: var(--yellow);
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    transition: all 0.4s ease;
+  }
+  .moon {
+    background-color: var(--night-yellow);
+  }
+  .moon-circle {
+    position: absolute;
+    z-index: 0;
+    height: 100px;
+    width: 100px;
+    top: 57px;
+    left: 88px;
+    border-radius: 50%;
+    background-color: var(--night-sky);
+  }
+  .sun-flare {
+    position: absolute;
+    background-color: transparent;
+    border-radius: 50%;
+    height: 159px;
+    width: 159px;
+    z-index: -1;
+    left: 51%;
+    top: 51%;
+    transform: translate(-50%, -50%);
+    animation: sun-flare-animation 4s ease-in infinite;
+  }
+  .moon-flare {
+    position: absolute;
+    background-color: transparent;
+    border-radius: 50%;
+    height: 159px;
+    width: 159px;
+    z-index: -1;
+    left: 51%;
+    top: 51%;
+    transform: translate(-50%, -50%);
+    animation: moon-flare-animation 4s ease-in infinite;
+  }
+}
+.sun-container > .sun:hover {
+  background-color: rgb(255, 141, 88);
+  cursor: pointer;
+}
+
+@keyframes sun-flare-animation {
+  0% {
+    height: 135px;
+    width: 135px;
+    border: 4px solid var(--yellow);
+  }
+  50% {
+    height: 135px;
+    width: 135px;
+    border: 4px solid var(--yellow);
+  }
+  100% {
+    height: 240px;
+    width: 240px;
+    border: 4px solid #feffcd1f;
+  }
+}
+@keyframes moon-flare-animation {
+  0% {
+    height: 135px;
+    width: 135px;
+    border: 4px solid var(--night-yellow);
+  }
+  50% {
+    height: 135px;
+    width: 135px;
+    border: 3px solid var(--night-yellow);
+  }
+  100% {
+    height: 240px;
+    width: 240px;
+    border: 3px solid #c2f73a00;
+  }
+}
+
+@keyframes cloud-drift {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(150px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.cloud-container {
+  position: absolute;
+  animation: cloud-drift 60s ease-in-out infinite;
+}
+.cloud-part-1 {
+  position: absolute;
+  background-color: var(--clouds);
+  height: 90px;
+  width: 90px;
+  border-radius: 50%;
+  top: 30px;
+}
+.cloud-part-2 {
+  position: absolute;
+  background-color: var(--clouds);
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  top: 2px;
+  left: 52px;
+}
+.cloud-part-3 {
+  position: absolute;
+  background-color: var(--clouds);
+  height: 55px;
+  width: 130px;
+  border-radius: 0 20px 20px 0px;
+  top: 65px;
+  left: 50px;
+}
+.cloud-part-4 {
+  position: absolute;
+  background-color: var(--clouds);
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  top: 40px;
+  left: 106px;
+}
+.night-cloud {
+  background-color: var(--night-clouds);
+}
+
+// The Birds
+@keyframes bird-drift {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(40px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.bird-container {
+  position: absolute;
+  animation: bird-drift 45s ease-in-out infinite;
+  img {
+    width: 7px;
+  }
+}
