@@ -31,7 +31,7 @@ const buildpath = path.normalize(path.join(__dirname, "client/dist"));
 app.use(express.static(buildpath));
 
 // routes //
-app.route("/api/v1/fish").get(getAllFish).post(createFish);
+app.route("/api/v1/fish").get(getAllFish); //.post(createFish);
 app.route("/api/v1/fish/searchfish/:id").get(getSpecificFish);
 // .put(updateFish)
 // .delete(deleteFish);
