@@ -101,6 +101,12 @@
     padding-top: 20px;
   }
 }
+@media (width < 370px) {
+  .fish-info-card {
+    width: 90%;
+    font-size: 0.6rem;
+  }
+}
 
 @keyframes fish-info-card-animation {
   0% {
